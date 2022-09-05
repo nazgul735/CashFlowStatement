@@ -13,12 +13,9 @@ class CashFlowStatement():
         ticker=CashFlowStatement().establishConnection()[1]
         yr=CashFlowStatement().establishConnection()[2]
         cf_statement=requests.get(f'https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?limit={yr}&apikey={api_key}')
-
         cf_statement=cf_statement.json()
-
         cashflow=list(reversed([cf_statement[i]['operatingCashFlow'] for i in range(len(cf_statement))]))
         return cashflow
-
     def plotData(var: None):
         cashflow=CashFlowStatement().getDataCashFlow()
         plt.xlim(0, CashFlowStatement().establishConnection()[2])
@@ -26,8 +23,7 @@ class CashFlowStatement():
         plt.legend(loc="upper left")
         plt.xlabel('Year')
         plt.ylabel('Millions')
-        plt.title(CashFlowStatement().establishConnection()[1]) 
-
+        plt.title(CashFlowStatement().establishConnection()[1])
         plt.show()
 CashFlowStatement().plotData()
 
