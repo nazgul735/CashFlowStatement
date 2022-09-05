@@ -1,6 +1,5 @@
 import requests
 import matplotlib.pyplot as plt
-
 class BalanceSheet():
     def establishConnection(var: None) -> list:
         api_key=open('apiKey.txt', 'r').read()
